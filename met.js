@@ -15,15 +15,14 @@ function getMet(myString){
     }
     else{
               const objectIDs = {
-                "total": 666,
-                "objectIDs": [
-                  int : int[0]
+                total: response.total,
+                objectIDs: [
+                  int : response.int[0]
             ]
               }
     }
 
   })
-  appobjectID(objectIDs)
 }
 
 function appobjectID(objectID){
@@ -41,10 +40,10 @@ function appobjectID(objectID){
         else{
             const data= {
             artist : constituents[0].name,
-            title: title,
-            year: objectEndDate,
-            technique: medium,
-            metUrl: objectURL
+            title: response.title,
+            year: response.objectEndDate,
+            technique: response.medium,
+            metUrl: response.objectURL
           }
         }
           const datafinal={
