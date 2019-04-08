@@ -14,15 +14,16 @@ function getMet(myString){
       callback('Bad Request',undefined)
     }
     else{
-              const objectIDs = {
-                total: response.total,
+      const objectID ={
+                total: response.total[0],
                 objectIDs: [
                   int : response.int[0]
             ]
-              }
+          }
     }
-
+    appobjectID(objectID)
   })
+
 }
 
 function appobjectID(objectID){
