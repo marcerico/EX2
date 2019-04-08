@@ -4,7 +4,7 @@ const readline = require('readline')
 const met = require('met.js')
 
 //heroku (heroku https://git.heroku.com/mini-web-server9658.git
-
+const publicDir = path.join(__dirname, 'EX2')
 const app = express()
 
 /*  input: process.stdin,
@@ -22,7 +22,7 @@ rl.question('Cual es tu nombre?', function(nombre) {
 
 let id = 'A01039658'
 
-app.get('/students/+id', function(req, res) {
+app.get('/students/: id', function(req, res) {
   res.send({
     id: req.params.id,
     fullname: "Marcela",
