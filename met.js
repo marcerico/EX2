@@ -14,12 +14,7 @@ function getMet(myString){
       callback('Bad Request',undefined)
     }
     else{
-      const objectID ={
-                total: response.total[0],
-                objectIDs: [
-                  int : response.int[0]
-            ]
-          }
+      objectID : response.objectID[0]
     }
     appobjectID(objectID)
   })
