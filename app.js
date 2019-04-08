@@ -1,12 +1,14 @@
 const express = require('express')
 const request = require('request')
 const readline = require('readline')
-const met = require('met.js')
+const met= require('met.js')
 
-//heroku (heroku https://git.heroku.com/mini-web-server9658.git
-const publicDir = path.join(__dirname, 'EX2')
 const app = express()
 
+const publicDir = path.join(__dirname, 'EX2')
+
+
+//heroku (heroku https://git.heroku.com/mini-web-server9658.git
 /*  input: process.stdin,
   output: process.stdout
 })
@@ -37,42 +39,12 @@ app.get('/met', function(req, res) {
       error: 'ERROR'
     })
   }
+  else if (req.query.search){
+    appobjectID(objectID)
+  }
 })
 
-function appobjectID(objectID){
-  const urldos = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/objectID'
-  request({url : urldos , json : true},function(error,response){
-        if(error){
-          callback('ERROR',undefined)
-        }
-        else if(response.statusCode === '403'){
-          callback('Invalid ID',undefined)
-        }
-        else if(response.statusCode === '400'){
-          callback('Bad Request',undefined)
-        }
-        else{
-            const data= {
-            artist : constituents[0].name,
-            title: title,
-            year: objectEndDate,
-            technique: medium,
-            metUrl: objectURL
-          }
-          const datafinal={
-                searchTerm: req.query.search,
-                artist : constituents[0].name,
-                title: title,
-                year: objectEndDate,
-                technique: medium,
-                metUrl: objectURL
-          }
-        }
-      }
-}
 
-
-}
 
 app.get('*', function(req, res) {
   res.send({
@@ -83,3 +55,4 @@ app.get('*', function(req, res) {
 app.listen(3000, function() {
   console.log('up and running')
 })
+
