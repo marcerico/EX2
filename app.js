@@ -22,7 +22,7 @@ rl.question('Cual es tu nombre?', function(nombre) {
 
 let id = 'A01039658'
 
-app.get('/students/:id', function(req, res) {
+app.get('/students/+id', function(req, res) {
   res.send({
     id: req.params.id,
     fullname: "Marcela",
