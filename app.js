@@ -25,11 +25,17 @@ rl.question('Cual es tu nombre?', function(nombre) {
 let id = 'A01039658'
 
 app.get('/students/: id', function(req, res) {
-  res.send({
-    id: req.params.id,
+  res.send(/*{
+    id: req.params.id, //'A01039658'
     fullname: "Marcela",
     nickname: "Rico",
     age: 22
+  }*/
+  {
+    "id": req.params.id,
+    "fullname": "Marcela",
+    "nickname": "Rico",
+    "age": 22
   })
 })
 
@@ -56,3 +62,4 @@ app.get('*', function(req, res) {
 app.listen(3000, function() {
   console.log('up and running')
 })
+
