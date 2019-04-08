@@ -30,7 +30,7 @@ app.get('/students/:id', function(req, res) {
   })
 })
 
-app.get('/met: search', function(req, res) {
+app.get('/met', function(req, res) {
   if( !req.query.search ) {
     return res.send({
       error: 'ERROR'
