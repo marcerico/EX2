@@ -6,8 +6,7 @@ const readline = require('readline')
 
 const app = express()
 
-const rl = readline.createInterface({
-  input: process.stdin,
+/*  input: process.stdin,
   output: process.stdout
 })
 
@@ -18,14 +17,16 @@ rl.question('Cual es tu matricula?', function(id) {
 rl.question('Cual es tu nombre?', function(nombre) {
   console.log(nombre)
   rl.close();
-});
+});*/
 
-app.get('/students/: id', function(req, res) {
+let id = 'A01039658'
+
+app.get('/students/:id', function(req, res) {
   res.send({
     id: req.params.id,
-    fullname: req.params.nombre,
-    nickname: "Strider",
-    age: 87
+    fullname: "Marcela",
+    nickname: "Rico",
+    age: 22
   })
 })
 
@@ -72,9 +73,10 @@ function appobjectID(objectID){
 
 }
 
-
-app.listen(3000, function() {
-  console.log('up and running')
+app.get('*', function(req, res) {
+  res.send({
+    error: 'Esta ruta no existe'
+  })
 })
 
 app.listen(3000, function() {
