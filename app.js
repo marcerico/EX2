@@ -1,8 +1,8 @@
 const express = require('express')
 const request = require('request')
 const readline = require('readline')
-//heroku (heroku https://git.heroku.com/mini-web-server9658.git
 
+//heroku (heroku https://git.heroku.com/mini-web-server9658.git
 
 const app = express()
 
@@ -11,14 +11,31 @@ const rl = readline.createInterface({
   output: process.stdout
 })
 
-rl.question('Cual es tu matricula?', function(matricula) {
-  console.log(matricula)
+rl.question('Cual es tu matricula?', function(id) {
+  console.log(id)
   rl.close();
 });
 rl.question('Cual es tu nombre?', function(nombre) {
   console.log(nombre)
   rl.close();
 });
+
+app.get('/students/: id', function(req, res) {
+  res.send({
+    id: req.params.id,
+    fullname: req.params.nombre,
+    nickname: "Strider",
+    age: 87
+  })
+})
+
+app.get('/met: search', function(req, res) {
+  if( !req.query.search ) {
+    return res.send({
+      error: 'ERROR'
+    })
+  }
+})
 
 function appobjectID(objectID){
   const urldos = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/objectID'
@@ -54,21 +71,10 @@ function appobjectID(objectID){
 
 
 }
-app.get('/students/: matricula', function(req, res) {
-  res.send({
-    matricula: req.question.matricula,
-    fullname: req.question.nombre,
-    nickname: "Strider",
-    age: 87
-  })
-})
 
-app.get('/met: search', function(req, res) {
-  if( !req.query.search ) {
-    return res.send({
-      error: 'ERROR'
-    })
-  }
+
+app.listen(3000, function() {
+  console.log('up and running')
 })
 
 app.listen(3000, function() {
