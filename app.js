@@ -40,7 +40,7 @@ app.get('/met', function(req, res) {
     })
   }
   else if (req.query.search){
-    appobjectID(objectID)
+    getMet(myString)
   }
 })
 
