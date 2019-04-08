@@ -41,6 +41,7 @@ app.get('/met', function(req, res) {
   }
   else if (req.query.search){
     getMet(myString)
+    appobjectID(objectIDs)
   }
 })
 
@@ -55,4 +56,3 @@ app.get('*', function(req, res) {
 app.listen(3000, function() {
   console.log('up and running')
 })
-
